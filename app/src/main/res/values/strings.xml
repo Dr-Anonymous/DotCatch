@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">DotCatch</string>
-    <dimen name="box">72dp</dimen>
+    <dimen name="box">70dp</dimen>
 </resources>

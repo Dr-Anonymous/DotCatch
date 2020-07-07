@@ -16,8 +16,8 @@
             android:layout_height="@dimen/box"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:onClick="buttonOnClick"
-            android:src="@drawable/on" />
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -25,9 +25,8 @@
             android:layout_height="@dimen/box"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:onClick="buttonOnClick"
-            android:src="@drawable/on"
-            android:visibility="invisible" />
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
 
         <ImageButton
             android:id="@+id/imageButton3"
@@ -35,9 +34,8 @@
             android:layout_height="@dimen/box"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:onClick="buttonOnClick"
-            android:src="@drawable/on"
-            android:visibility="invisible" />
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
 
         <ImageButton
             android:id="@+id/imageButton4"
@@ -45,19 +43,38 @@
             android:layout_height="@dimen/box"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:onClick="buttonOnClick"
-            android:src="@drawable/on"
-            android:visibility="invisible" />
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
 
         <TextView
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:gravity="center_horizontal"
+            android:onClick="buttonOnClick"
             android:textAlignment="center"
             android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="0"
+            android:textSize="26sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/score"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:text="Score"
+            android:textSize="16sp" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
