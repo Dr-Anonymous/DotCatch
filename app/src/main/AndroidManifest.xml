@@ -18,6 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- <activity
+             android:name=".Level2"
+             android:configChanges="orientation|screenSize"
+             android:label="Level 2">
+         </activity> -->
     </application>
 
 </manifest>

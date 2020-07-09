@@ -7,11 +7,11 @@
     tools:context=".MainActivity">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/b1"
             android:layout_width="@dimen/box"
             android:layout_height="@dimen/box"
             android:layout_alignParentLeft="true"
@@ -20,7 +20,7 @@
             android:onClick="buttonOnClick" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/b2"
             android:layout_width="@dimen/box"
             android:layout_height="@dimen/box"
             android:layout_alignParentTop="true"
@@ -29,7 +29,16 @@
             android:onClick="buttonOnClick" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/b3"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b4"
             android:layout_width="@dimen/box"
             android:layout_height="@dimen/box"
             android:layout_alignParentLeft="true"
@@ -38,13 +47,133 @@
             android:onClick="buttonOnClick" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/b5"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b6"
             android:layout_width="@dimen/box"
             android:layout_height="@dimen/box"
             android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b7"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b8"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b9"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/b1"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b10"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/b2"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b11"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_below="@+id/b2"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b12"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_above="@+id/b3"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b13"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/b3"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b14"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/b4"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b15"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_below="@+id/b1"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <ImageButton
+            android:id="@+id/b16"
+            android:layout_width="@dimen/box"
+            android:layout_height="@dimen/box"
+            android:layout_above="@+id/b4"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/transparent"
+            android:onClick="buttonOnClick" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/scoreLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:text="0"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/scoreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:gravity="center_horizontal"
+            android:text="Score"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/text"
@@ -54,27 +183,9 @@
             android:gravity="center_horizontal"
             android:onClick="buttonOnClick"
             android:textAlignment="center"
-            android:textSize="26sp" />
+            android:textSize="26sp"/>
 
-        <TextView
-            android:id="@+id/score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:text="0"
-            android:textSize="26sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/score"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:gravity="center_horizontal"
-            android:text="Score"
-            android:textSize="16sp" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
