@@ -45,15 +45,13 @@ public class MainActivity extends AppCompatActivity {
         b2 = findViewById(R.id.b2);
         parent = findViewById(R.id.parent);
         parent.setClickable(false);
-        //View b3 = LayoutInflater.from(this).inflate(R.layout.button, null);
-        //parent.addView(b3);
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        set(1);
-        set(2);
+        set(b1);
+        set(b2);
     }
 
     public void buttonOnClick(View view) {
@@ -63,10 +61,15 @@ public class MainActivity extends AppCompatActivity {
                 textView.setClickable(false);
                 parent.setClickable(true);
                 b1.setVisibility(View.VISIBLE);
-                set(1);
+                set(b1);
                 if (level > 5) {
+                   /* ImageButton myButton = new ImageButton(this);
+                    myButton.setLayoutParams(new RelativeLayout.LayoutParams(
+                            RelativeLayout.LayoutParams.WRAP_CONTENT,
+                            RelativeLayout.LayoutParams.WRAP_CONTENT));
+                    */
                     b2.setVisibility(View.VISIBLE);
-                    set(2);
+                    set(b2);
                 }
                 break;
             case R.id.parent:
@@ -79,11 +82,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.b1:
                 score();
-                set(1);
+                set(b1);
                 break;
             case R.id.b2:
                 score();
-                set(2);
+                set(b2);
                 break;
         }
 
@@ -97,18 +100,19 @@ public class MainActivity extends AppCompatActivity {
         levelUp(q);
     }
 
-    public void set(int i) {
+    public void set(View v) {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         params.leftMargin = random()[0];
         params.topMargin = random()[1];
-        switch (i) {
+        v.setLayoutParams(params);
+       /* switch (i) {
             case 1:
                 b1.setLayoutParams(params);
                 break;
             case 2:
                 b2.setLayoutParams(params);
                 break;
-        }
+        }*/
 
     }
 
