@@ -3,9 +3,13 @@ package com.orthosam.dotcatch;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,10 +18,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    ImageButton b1, b2, b3, b4, b5, b6, b7, b8;
-    TextView textView, score;
     public static String LEVEL;
     public int level;
+    ImageButton b1, b2, b3;
+    TextView textView, score;
+    RelativeLayout parent;
 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -34,90 +39,54 @@ public class MainActivity extends AppCompatActivity {
         //set the title
         getSupportActionBar().setTitle("Level " + String.valueOf(level));
         textView = findViewById(R.id.text);
+        textView.setText(R.string.ready);
         score = findViewById(R.id.score);
         b1 = findViewById(R.id.b1);
         b2 = findViewById(R.id.b2);
-        b3 = findViewById(R.id.b3);
-        b4 = findViewById(R.id.b4);
-        b5 = findViewById(R.id.b5);
-        b6 = findViewById(R.id.b6);
-        b7 = findViewById(R.id.b7);
-        b8 = findViewById(R.id.b8);
+        parent = findViewById(R.id.parent);
+        parent.setClickable(false);
+        //View b3 = LayoutInflater.from(this).inflate(R.layout.button, null);
+        //parent.addView(b3);
+    }
 
-        textView.setText("Ready?");
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        set(1);
+        set(2);
     }
 
     public void buttonOnClick(View view) {
-        try {
-            switch (view.getId()) {
-                case R.id.text:
-                    textView.setText("Catch the dot!!!");
-                    textView.setClickable(false);
-                    set();
-                    break;
-                case R.id.b1:
-                    //getResources().getDrawable(R.drawable.on).getConstantState()
-                    b1.getDrawable().getConstantState();
-                    b1.setImageResource(0);
-                    score();
-                    set();
-                    break;
-                case R.id.b2:
-                    b2.getDrawable().getConstantState();
-                    b2.setImageResource(0);
-                    score();
-                    set();
-                    break;
-                case R.id.b3:
-                    b3.getDrawable().getConstantState();
-                    b3.setImageResource(0);
-                    set();
-                    score();
-                    break;
-                case R.id.b4:
-                    b4.getDrawable().getConstantState();
-                    b4.setImageResource(0);
-                    set();
-                    score();
-                    break;
-                case R.id.b5:
-                    b5.getDrawable().getConstantState();
-                    b5.setImageResource(0);
-                    set();
-                    score();
-                    break;
-                case R.id.b6:
-                    b6.getDrawable().getConstantState();
-                    b6.setImageResource(0);
-                    set();
-                    score();
-                    break;
-                case R.id.b7:
-                    b7.getDrawable().getConstantState();
-                    b7.setImageResource(0);
-                    set();
-                    score();
-                    break;
-                case R.id.b8:
-                    b8.getDrawable().getConstantState();
-                    b8.setImageResource(0);
-                    set();
-                    score();
-                    break;
-            }
-        } catch (Exception e) {
-            textView.setText("Game Over.\nPlay again ?");
-            textView.setClickable(true);
-            b1.setImageResource(0);
-            b2.setImageResource(0);
-            b3.setImageResource(0);
-            b4.setImageResource(0);
-            b5.setImageResource(0);
-            b6.setImageResource(0);
-            b7.setImageResource(0);
-            b8.setImageResource(0);
-            score.setText("0");
+        switch (view.getId()) {
+            case R.id.text:
+                textView.setText(R.string.DotCatch);
+                textView.setClickable(false);
+                parent.setClickable(true);
+                b1.setVisibility(View.VISIBLE);
+                set(1);
+                if (level > 5) {
+                    b2.setVisibility(View.VISIBLE);
+                    set(2);
+                }
+                break;
+            case R.id.parent:
+                textView.setText(R.string.over);
+                textView.setClickable(true);
+                parent.setClickable(false);
+                b1.setVisibility(View.GONE);
+                b2.setVisibility(View.GONE);
+                score.setText("0");
+                break;
+            case R.id.b1:
+                score();
+                set(1);
+                break;
+            case R.id.b2:
+                score();
+                set(2);
+                break;
         }
+
     }
 
     public void score() {
@@ -128,34 +97,19 @@ public class MainActivity extends AppCompatActivity {
         levelUp(q);
     }
 
-    public void set() {
-        switch (random()) {
+    public void set(int i) {
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        params.leftMargin = random()[0];
+        params.topMargin = random()[1];
+        switch (i) {
             case 1:
-                b1.setImageResource(R.drawable.on);
+                b1.setLayoutParams(params);
                 break;
             case 2:
-                b2.setImageResource(R.drawable.on);
+                b2.setLayoutParams(params);
                 break;
-            case 3:
-                b3.setImageResource(R.drawable.on);
-                break;
-            case 4:
-                b4.setImageResource(R.drawable.on);
-                break;
-            case 5:
-                b5.setImageResource(R.drawable.on);
-                break;
-            case 6:
-                b6.setImageResource(R.drawable.on);
-                break;
-            case 7:
-                b7.setImageResource(R.drawable.on);
-                break;
-            case 8:
-                b8.setImageResource(R.drawable.on);
-                break;
-
         }
+
     }
 
     public void levelUp(int i) {
@@ -183,14 +137,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public int random() {
-        final int min = 1;
-        final int max;
-        if (level == 1)
-            max = 4;
-        else if (level == 2)
-            max = 6;
-        else max = 8;
-        return new Random().nextInt((max - min) + 1) + min;
+    public int[] random() {
+        int w = Resources.getSystem().getDisplayMetrics().widthPixels;
+        int h = Resources.getSystem().getDisplayMetrics().heightPixels;
+        w = w - 180;//do the adjustments  w-200 and h-300
+        h = h - 300;
+        final int min = 0;
+        w = new Random().nextInt((w - min) + 1) + min;
+        h = new Random().nextInt((h - min) + 1) + min;
+        return new int[]{w, h};
     }
 }

@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">DotCatch</string>
     <string name="saved_high_score_key">score</string>
-    <dimen name="box">70dp</dimen>
+    <dimen name="box">72dp</dimen>
+    <string name="ready">Ready ?</string>
+    <string name="DotCatch">Catch the dot!</string>
+    <string name="over">Game Over. Play again ?</string>
 </resources>
